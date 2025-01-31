@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Rails::Prof::Engine => "/rails-prof"
+  mount Rails::Prof::Engine => "/pprof"
 end
