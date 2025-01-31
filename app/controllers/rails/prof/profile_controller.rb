@@ -6,7 +6,7 @@ module Rails::Prof
     end
 
     def heap
-      seconds = params.fetch(:seconds, 10)
+      seconds = params.fetch(:seconds, 10).to_i
       data = ""
 
       if params.fetch(:gc, 0) > 0
