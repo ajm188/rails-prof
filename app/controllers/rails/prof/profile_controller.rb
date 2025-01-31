@@ -6,6 +6,13 @@ module Rails::Prof
     def index
     end
 
+    def cmdline
+      response.set_header("X-Content-Type-Options", "nosniff")
+
+      args = ARGV.join("\x00")
+      render plain: args, type: "text/plain"
+    end
+
     def cpu
       seconds = params.fetch(:seconds, 10).to_i
       profile = StackProf.run(mode: :cpu, raw: true) do
