@@ -19,7 +19,7 @@ module Rails::Prof
       seconds = params.fetch(:seconds, 10).to_i
       data = ""
 
-      if params.fetch(:gc, 0) > 0
+      if params.fetch(:gc, 0).to_i > 0
         ObjectSpace.garbage_collect
       end
 
